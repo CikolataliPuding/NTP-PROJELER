@@ -1,4 +1,69 @@
-.vs/
+## Build çýktýlarý
 bin/
 obj/
+[Bb]uild/
+[Ll]og/
+
+## Visual Studio cache
+.vs/
+*.dbmdl
+*.opendb
+
+## Kullanýcýya özel dosyalar
+*.user
+*.userosscache
+*.suo
+*.sln.docstates
+
+## Debug / Release çýktý klasörleri
+Debug/
+Release/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+
+## Paketler
+*.nupkg
+*.snupkg
+*.nuspec
+packages/
+!packages/build/
+
+## Yaygýn log dosyalarý
 *.log
+*.tlog
+
+## Geçici dosyalar
+*.tmp
+*.temp
+*.bak
+*.Backup
+*.swp
+*.swo
+
+## Publish çýktýlarý
+publish/
+PublishProfiles/
+*.pubxml
+*.publishproj
+
+## Rider / JetBrains / ReSharper
+.idea/
+*.DotSettings.user
+_ReSharper*/
+*.resharper
+*.DotSettings
+
+## Diðer
+*.cache
+*.pdb
+*.mdb
+*.ilk
+*.obj
+*.idb
+*.sdf
+*.opensdf
+*.cachefile
+*.db
+*.VC.db
