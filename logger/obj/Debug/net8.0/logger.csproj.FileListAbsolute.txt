@@ -1,0 +1,15 @@
+C:\Users\egeme\Documents\GitHub\esucodes\NTP-PROJELER\logger\bin\Debug\net8.0\logger.exe
+C:\Users\egeme\Documents\GitHub\esucodes\NTP-PROJELER\logger\bin\Debug\net8.0\logger.deps.json
+C:\Users\egeme\Documents\GitHub\esucodes\NTP-PROJELER\logger\bin\Debug\net8.0\logger.runtimeconfig.json
+C:\Users\egeme\Documents\GitHub\esucodes\NTP-PROJELER\logger\bin\Debug\net8.0\logger.dll
+C:\Users\egeme\Documents\GitHub\esucodes\NTP-PROJELER\logger\bin\Debug\net8.0\logger.pdb
+C:\Users\egeme\Documents\GitHub\esucodes\NTP-PROJELER\logger\obj\Debug\net8.0\logger.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\egeme\Documents\GitHub\esucodes\NTP-PROJELER\logger\obj\Debug\net8.0\logger.AssemblyInfoInputs.cache
+C:\Users\egeme\Documents\GitHub\esucodes\NTP-PROJELER\logger\obj\Debug\net8.0\logger.AssemblyInfo.cs
+C:\Users\egeme\Documents\GitHub\esucodes\NTP-PROJELER\logger\obj\Debug\net8.0\logger.csproj.CoreCompileInputs.cache
+C:\Users\egeme\Documents\GitHub\esucodes\NTP-PROJELER\logger\obj\Debug\net8.0\logger.sourcelink.json
+C:\Users\egeme\Documents\GitHub\esucodes\NTP-PROJELER\logger\obj\Debug\net8.0\logger.dll
+C:\Users\egeme\Documents\GitHub\esucodes\NTP-PROJELER\logger\obj\Debug\net8.0\refint\logger.dll
+C:\Users\egeme\Documents\GitHub\esucodes\NTP-PROJELER\logger\obj\Debug\net8.0\logger.pdb
+C:\Users\egeme\Documents\GitHub\esucodes\NTP-PROJELER\logger\obj\Debug\net8.0\logger.genruntimeconfig.cache
+C:\Users\egeme\Documents\GitHub\esucodes\NTP-PROJELER\logger\obj\Debug\net8.0\ref\logger.dll
