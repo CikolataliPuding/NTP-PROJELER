@@ -1,0 +1,15 @@
+C:\Users\egeme\Documents\GitHub\esucodes\NTP-PROJELER\SocketChat\bin\Debug\net8.0\SocketChat.exe
+C:\Users\egeme\Documents\GitHub\esucodes\NTP-PROJELER\SocketChat\bin\Debug\net8.0\SocketChat.deps.json
+C:\Users\egeme\Documents\GitHub\esucodes\NTP-PROJELER\SocketChat\bin\Debug\net8.0\SocketChat.runtimeconfig.json
+C:\Users\egeme\Documents\GitHub\esucodes\NTP-PROJELER\SocketChat\bin\Debug\net8.0\SocketChat.dll
+C:\Users\egeme\Documents\GitHub\esucodes\NTP-PROJELER\SocketChat\bin\Debug\net8.0\SocketChat.pdb
+C:\Users\egeme\Documents\GitHub\esucodes\NTP-PROJELER\SocketChat\obj\Debug\net8.0\SocketChat.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\egeme\Documents\GitHub\esucodes\NTP-PROJELER\SocketChat\obj\Debug\net8.0\SocketChat.AssemblyInfoInputs.cache
+C:\Users\egeme\Documents\GitHub\esucodes\NTP-PROJELER\SocketChat\obj\Debug\net8.0\SocketChat.AssemblyInfo.cs
+C:\Users\egeme\Documents\GitHub\esucodes\NTP-PROJELER\SocketChat\obj\Debug\net8.0\SocketChat.csproj.CoreCompileInputs.cache
+C:\Users\egeme\Documents\GitHub\esucodes\NTP-PROJELER\SocketChat\obj\Debug\net8.0\SocketChat.sourcelink.json
+C:\Users\egeme\Documents\GitHub\esucodes\NTP-PROJELER\SocketChat\obj\Debug\net8.0\SocketChat.dll
+C:\Users\egeme\Documents\GitHub\esucodes\NTP-PROJELER\SocketChat\obj\Debug\net8.0\refint\SocketChat.dll
+C:\Users\egeme\Documents\GitHub\esucodes\NTP-PROJELER\SocketChat\obj\Debug\net8.0\SocketChat.pdb
+C:\Users\egeme\Documents\GitHub\esucodes\NTP-PROJELER\SocketChat\obj\Debug\net8.0\SocketChat.genruntimeconfig.cache
+C:\Users\egeme\Documents\GitHub\esucodes\NTP-PROJELER\SocketChat\obj\Debug\net8.0\ref\SocketChat.dll

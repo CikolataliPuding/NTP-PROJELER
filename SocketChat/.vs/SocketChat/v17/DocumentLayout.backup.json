@@ -1,0 +1,64 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\egeme\\Documents\\GitHub\\esucodes\\NTP-PROJELER\\SocketChat\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{F065C701-6C7C-42D7-95F5-A14C881A8571}|SocketChat.csproj|c:\\users\\egeme\\documents\\github\\esucodes\\ntp-projeler\\socketchat\\socketchat.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
+      "RelativeMoniker": "D:0:0:{F065C701-6C7C-42D7-95F5-A14C881A8571}|SocketChat.csproj|solutionrelative:socketchat.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F065C701-6C7C-42D7-95F5-A14C881A8571}|SocketChat.csproj|c:\\users\\egeme\\documents\\github\\esucodes\\ntp-projeler\\socketchat\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F065C701-6C7C-42D7-95F5-A14C881A8571}|SocketChat.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "SocketChat",
+              "DocumentMoniker": "C:\\Users\\egeme\\Documents\\GitHub\\esucodes\\NTP-PROJELER\\SocketChat\\SocketChat.csproj",
+              "RelativeDocumentMoniker": "SocketChat.csproj",
+              "ToolTip": "C:\\Users\\egeme\\Documents\\GitHub\\esucodes\\NTP-PROJELER\\SocketChat\\SocketChat.csproj",
+              "RelativeToolTip": "SocketChat.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-10-12T19:16:56.461Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\egeme\\Documents\\GitHub\\esucodes\\NTP-PROJELER\\SocketChat\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\egeme\\Documents\\GitHub\\esucodes\\NTP-PROJELER\\SocketChat\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAADAAAAAAAAAAAAAowEYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-12T18:58:59.005Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
