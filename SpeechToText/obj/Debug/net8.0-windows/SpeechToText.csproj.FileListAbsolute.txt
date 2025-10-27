@@ -1,0 +1,7 @@
+C:\Users\egeme\Documents\GitHub\esucodes\NTP-PROJELER\SpeechToText\obj\Debug\net8.0-windows\SpeechToText.Form1.resources
+C:\Users\egeme\Documents\GitHub\esucodes\NTP-PROJELER\SpeechToText\obj\Debug\net8.0-windows\SpeechToText.csproj.GenerateResource.cache
+C:\Users\egeme\Documents\GitHub\esucodes\NTP-PROJELER\SpeechToText\obj\Debug\net8.0-windows\SpeechToText.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\egeme\Documents\GitHub\esucodes\NTP-PROJELER\SpeechToText\obj\Debug\net8.0-windows\SpeechToText.AssemblyInfoInputs.cache
+C:\Users\egeme\Documents\GitHub\esucodes\NTP-PROJELER\SpeechToText\obj\Debug\net8.0-windows\SpeechToText.AssemblyInfo.cs
+C:\Users\egeme\Documents\GitHub\esucodes\NTP-PROJELER\SpeechToText\obj\Debug\net8.0-windows\SpeechToText.csproj.CoreCompileInputs.cache
+C:\Users\egeme\Documents\GitHub\esucodes\NTP-PROJELER\SpeechToText\obj\Debug\net8.0-windows\SpeechToText.sourcelink.json
