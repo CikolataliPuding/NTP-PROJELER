@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
+using System.Linq;
 using System.Speech.Synthesis;
 using System.Windows.Forms;
 
@@ -23,31 +24,42 @@ namespace FaceRecognition
         {
             InitializeComponent();
 
-            // Cascade dosyasýný projenin çalýþma dizininden al
-            string xmlPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "haarcascade_frontalface_alt2.xml");
+            // Cascade dosyasÄ±nÄ± projenin Ã§alÄ±ÅŸma dizininden al
+            string xmlPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "haarcascade_frontalface_default.xml");
 
-            // Dosya var mý kontrolü
+            // Dosya var mÄ± kontrolÃ¼
             if (!File.Exists(xmlPath))
             {
-                MessageBox.Show("Cascade dosyasý bulunamadý!\n\nBeklenen konum:\n" + xmlPath,
+                MessageBox.Show("Cascade dosyasÄ± bulunamadÄ±!\n\nBeklenen konum:\n" + xmlPath,
                     "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            // Ýlk satýrý kontrol edelim
-            string firstLine = File.ReadLines(xmlPath).FirstOrDefault() ?? "BOÞ DOSYA!";
+            // Ä°lk satÄ±rÄ± kontrol edelim
+            string firstLine = File.ReadLines(xmlPath).FirstOrDefault() ?? "BOÅž DOSYA!";
             if (!firstLine.Contains("<?xml"))
             {
-                MessageBox.Show("XML dosyasý bozuk görünüyor. Ýlk satýr:\n" + firstLine,
-                    "Geçersiz XML", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("XML dosyasÄ± bozuk gÃ¶rÃ¼nÃ¼yor. Ä°lk satÄ±r:\n" + firstLine,
+                    "GeÃ§ersiz XML", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            // Cascade baþlat
+            // Cascade baÅŸlat
             yuzAlgilayici = new CascadeClassifier(xmlPath);
 
-            // Tanýyýcýyý oluþtur
+            // TanÄ±yÄ±cÄ±yÄ± oluÅŸtur
             taniyici = new LBPHFaceRecognizer(1, 8, 8, 8, 100);
+
+            // Var olan model dosyasÄ±nÄ± yÃ¼kle (varsa)
+            try
+            {
+                if (File.Exists("egemen.yml"))
+                {
+                    taniyici.Read("egemen.yml");
+                    egitimTamamlandi = true;
+                }
+            }
+            catch { /* modele eriÅŸilemezse sessiz geÃ§ */ }
         }
 
         private void btnKameraBaslat_Click(object sender, EventArgs e)
@@ -57,17 +69,162 @@ namespace FaceRecognition
                 kamera = new VideoCapture();
                 kamera.ImageGrabbed += Kamera_ImageGrabbed;
                 kamera.Start();
-                lblDurum.Text = "Kamera baþlatýldý.";
+                lblDurum.Text = "Kamera baï¿½latï¿½ldï¿½.";
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Kamera baþlatýlamadý: " + ex.Message);
+                MessageBox.Show("Kamera baï¿½latï¿½lamadï¿½: " + ex.Message);
             }
         }
 
         private void Kamera_ImageGrabbed(object sender, EventArgs e)
         {
             Mat frame = new Mat();
+            try
+            {
+                kamera.Retrieve(frame);
+                if (frame.IsEmpty)
+                    return;
+
+                var img = frame.ToImage<Bgr, byte>();
+                var gri = img.Convert<Gray, byte>();
+
+                var yuzler = yuzAlgilayici.DetectMultiScale(
+                    gri,
+                    1.2,
+                    6,
+                    new Size(60, 60));
+
+                foreach (var rect in yuzler)
+                {
+                    CvInvoke.Rectangle(img, rect, new MCvScalar(0, 255, 0), 2);
+
+                    if (egitimTamamlandi)
+                    {
+                        using var yuz = gri.Copy(rect).Resize(100, 100, Inter.Cubic);
+                        var result = taniyici.Predict(yuz);
+                        string text = $"ID:{result.Label} conf:{result.Distance:0.0}";
+                        CvInvoke.PutText(img, text, new Point(rect.X, rect.Y - 8),
+                            FontFace.HersheySimplex, 0.6, new MCvScalar(0, 255, 0), 2);
+                    }
+                }
+
+                // UI thread'e gÃ¼venli ÅŸekilde gÃ¶rÃ¼ntÃ¼ aktar
+                if (pictureBox1.InvokeRequired)
+                {
+                    pictureBox1.BeginInvoke(new Action(() =>
+                    {
+                        pictureBox1.Image?.Dispose();
+                        pictureBox1.Image = img.ToBitmap();
+                    }));
+                }
+                else
+                {
+                    pictureBox1.Image?.Dispose();
+                    pictureBox1.Image = img.ToBitmap();
+                }
+            }
+            catch
+            {
+                // kare okunamadÄ±ysa sessiz geÃ§
+            }
         }
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            // Bu olay PictureBox'a tï¿½klanï¿½nca tetiklenir
+            // ï¿½imdilik boï¿½ bï¿½rakabiliriz
+        }
+        private void btnKaydet_Click(object sender, EventArgs e)
+        {
+            if (kamera == null)
+            {
+                MessageBox.Show("Kamera aÃ§Ä±k deÄŸil!");
+                return;
+            }
+
+            Mat frame = new Mat();
+            kamera.Retrieve(frame);
+            var img = frame.ToImage<Bgr, byte>();
+            var gri = img.Convert<Gray, byte>();
+            var yuzler = yuzAlgilayici.DetectMultiScale(gri, 1.2, 6, new Size(60, 60));
+
+            if (yuzler.Length > 0)
+            {
+                var yuz = gri.Copy(yuzler[0]).Resize(100, 100, Inter.Cubic);
+                Directory.CreateDirectory("faces");
+                // benzersiz dosya adÄ±
+                string fileName = $"egemen_{DateTime.Now:yyyyMMdd_HHmmss}.jpg";
+                string fullPath = Path.Combine("faces", fileName);
+                yuz.Save(fullPath);
+                lblDurum.Text = "YÃ¼z kaydedildi!";
+            }
+            else
+            {
+                lblDurum.Text = "YÃ¼z algÄ±lanamadÄ±!";
+            }
+        }
+
+        private void btnTani_Click(object sender, EventArgs e)
+        {
+            // en az bir gÃ¶rÃ¼ntÃ¼ gerekli
+            if (!Directory.Exists("faces") || Directory.GetFiles("faces", "*.jpg").Length == 0)
+            {
+                MessageBox.Show("EÄŸitim iÃ§in kayÄ±tlÄ± yÃ¼z bulunamadÄ±!");
+                return;
+            }
+
+            var images = new List<Image<Gray, byte>>();
+            var labels = new List<int>();
+            foreach (var path in Directory.GetFiles("faces", "*.jpg"))
+            {
+                images.Add(new Image<Gray, byte>(path));
+                labels.Add(1); // tek kiÅŸi iÃ§in aynÄ± etiket
+            }
+
+            using (var imageArray = new Emgu.CV.Util.VectorOfMat())
+            {
+                foreach (var img in images)
+                {
+                    imageArray.Push(img.Mat);
+                }
+
+                using (var labelsMat = new Mat(labels.Count, 1, DepthType.Cv32S, 1))
+                {
+                    for (int i = 0; i < labels.Count; i++)
+                    {
+                        var value = new int[] { labels[i] };
+                        using (var valueMat = new Mat(1, 1, DepthType.Cv32S, 1))
+                        {
+                            valueMat.SetTo(value);
+                            valueMat.CopyTo(new Mat(labelsMat, new Rectangle(0, i, 1, 1)));
+                        }
+                    }
+
+                    taniyici.Train(imageArray, labelsMat);
+                    taniyici.Write("egemen.yml");
+                    egitimTamamlandi = true;
+                    lblDurum.Text = "EÄŸitim tamamlandÄ±!";
+                }
+            }
+        }
+
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            try
+            {
+                if (kamera != null)
+                {
+                    kamera.ImageGrabbed -= Kamera_ImageGrabbed;
+                    if (kamera.IsOpened)
+                        kamera.Stop();
+                    kamera.Dispose();
+                    kamera = null;
+                }
+            }
+            catch { }
+            base.OnFormClosing(e);
+        }
+
+
     }
 }

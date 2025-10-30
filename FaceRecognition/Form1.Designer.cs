@@ -44,7 +44,7 @@
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
-            pictureBox1.Click += pictureBox1_Click;
+            pictureBox1.Click += new EventHandler(this.pictureBox1_Click);
             // 
             // lblDurum
             // 
@@ -63,7 +63,7 @@
             btnKameraBaslat.TabIndex = 2;
             btnKameraBaslat.Text = "Kamera Başlat";
             btnKameraBaslat.UseVisualStyleBackColor = true;
-            btnKameraBaslat.Click += btnKameraBaslat_Click;
+            btnKameraBaslat.Click += new EventHandler(this.btnKameraBaslat_Click);
             // 
             // btnKaydet
             // 
@@ -73,7 +73,7 @@
             btnKaydet.TabIndex = 3;
             btnKaydet.Text = "Yüz Kaydet";
             btnKaydet.UseVisualStyleBackColor = true;
-            btnKaydet.Click += btnKaydet_Click;
+            btnKaydet.Click += new EventHandler(this.btnKaydet_Click);
             // 
             // btnTani
             // 
@@ -83,24 +83,25 @@
             btnTani.TabIndex = 4;
             btnTani.Text = "Eğit / Tanı";
             btnTani.UseVisualStyleBackColor = true;
-            btnTani.Click += btnTani_Click;
+            btnTani.Click += new EventHandler(this.btnTani_Click);
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(820, 540);
             Controls.Add(btnTani);
             Controls.Add(btnKaydet);
             Controls.Add(btnKameraBaslat);
             Controls.Add(lblDurum);
             Controls.Add(pictureBox1);
             Name = "Form1";
-            Text = "Form1";
+            Text = "Face Recognition";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
+
 
         #endregion
 
